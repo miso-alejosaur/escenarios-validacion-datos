@@ -1,4 +1,4 @@
-# Estrategias usadas:
+# Estrategias usadas
 
 ## Pool de datos a priori
 
