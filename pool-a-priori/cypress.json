@@ -1,0 +1,9 @@
+{
+    "baseUrl": "http://localhost:2368/ghost",
+    "defaultCommandTimeout": 30000,
+    "env": {
+        "user": "test@test.tt",
+        "pwd": "1234567890a.",
+        "a_priori_runs_tags": "1"
+    }
+}
