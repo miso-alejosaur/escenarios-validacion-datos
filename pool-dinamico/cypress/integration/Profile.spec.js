@@ -14,9 +14,14 @@ describe('Testing Ghost Profile', () =>{
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
-        //cy.wait(200);
-        cy.visit('/#/settings/staff/tester/');
-        cy.get('.user-name ember-text-field gh-input ember-view').clear().type('hola');
+        cy.wait(1000);
+        cy.get('a[href="#/settings/"]').click();
+        cy.wait(200);
+        cy.get('a[href="#/settings/staff/"]').click();
+        cy.contains("a","#/settings/staff/").click();
+        //cy.get('a[href="#/settings/staff/*."]').click();
+        //cy.visit('/#/settings/staff/tester/');
+        //cy.get('.user-name ember-text-field gh-input ember-view').clear().type('hola');
     });
 
 })

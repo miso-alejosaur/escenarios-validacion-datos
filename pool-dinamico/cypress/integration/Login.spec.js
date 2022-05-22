@@ -17,16 +17,18 @@ describe('Testing Ghost Login', () =>{
         let index = Math.floor(Math.random() * dataset.length  )
         dataRow = dataset[index]
         cy.get('.email').clear().type(dataRow.username);
-        //cy.get('.password').clear().type(dataRow.password);
         cy.get('.login').click()
+        cy.get('button.login').contains('Retry')
+        cy.get('p.main-error').contains('Please fill out the form to sign in.')
     });
     it('SC03 - Usuario vacio y Password random', () => {
         let dataRow;
         let index = Math.floor(Math.random() * dataset.length  )
         dataRow = dataset[index]
-        //cy.get('.email').clear().type(dataRow.username);
         cy.get('.password').clear().type(dataRow.password);
         cy.get('.login').click()
+        cy.get('button.login').contains('Retry')
+        cy.get('p.main-error').contains('Please fill out the form to sign in.')
     });
     it('SC04 - Usuario y Password random', () => {
         let dataRow;
@@ -35,13 +37,15 @@ describe('Testing Ghost Login', () =>{
         cy.get('.email').clear().type(dataRow.username);
         cy.get('.password').clear().type(dataRow.password);
         cy.get('.login').click()
+        cy.get('button.login').contains('Retry')
+        cy.get('p.main-error').contains('There is no user with that email address.')
     });
     it('SC05 - Usuario y Password vacios', () => {
         let dataRow;
         let index = Math.floor(Math.random() * dataset.length  )
         dataRow = dataset[index]
-        //cy.get('.email').clear().type(dataRow.username);
-        //cy.get('.password').clear().type(dataRow.password);
         cy.get('.login').click()
+        cy.get('button.login').contains('Retry')
+        cy.get('p.main-error').contains('Please fill out the form to sign in.')
     });
 })
