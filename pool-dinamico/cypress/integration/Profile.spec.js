@@ -9,7 +9,7 @@ beforeEach(() => {
 
 
 describe('Testing Ghost Profile', () =>{
-    it('SC01 - Colocar Nombre Aleatoriamente', () => {
+   /* it('SC01 - Colocar Nombre Aleatoriamente', () => {
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -73,6 +73,21 @@ describe('Testing Ghost Profile', () =>{
         cy.get('input#user-name').clear().type('h', {force: true});
         cy.get('#ember67 > span').click();
         cy.get('.gh-canvas-title').should('contain', 'h')
+    });*/
+    it('SC06 - Colocar Locación Aleatoriamente', () => {
+        cy.get('.email').clear().type(username);
+        cy.get('.password').clear().type(password);
+        cy.get('.login').click();
+        cy.wait(1000);
+        cy.get('div.gh-nav-bottom div[role="button"]').click();
+        cy.wait(1000);
+        cy.contains('Your profile').click();
+        cy.wait(1000);
+        cy.get('input#user-location').clear().type('hola', {force: true});
+        cy.get('#ember67 > span').click();
+        //cy.get('#user-location').should('contain', 'hola')
+        cy.get('[data-ember-action-68="68"] > .pa5').click();
+        cy.get('#user-location').should('contain', 'hola');
     });
 
 })
