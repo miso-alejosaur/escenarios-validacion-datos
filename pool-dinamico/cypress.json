@@ -1,0 +1,8 @@
+{
+    "projectId": "Escenarios-PoolDinamico",
+    "baseUrl": "http://localhost:3002/ghost",
+    "defaultCommandTimeout": 30000,
+    "chromeWebSecurity": false,
+    "user": "test@test.tt",
+    "pwd": "1234567890a."
+}
