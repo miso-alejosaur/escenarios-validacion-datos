@@ -655,3 +655,245 @@ describe('SC23 - Create tag with long facebook description', () => {
       dataRow.long_facebook_description);//facebook_description);
   }
 });
+
+describe('SC24 - Create tag with short form color', () => {
+  let dataRow;
+  for (let index = 0; index < Math.min(dataset.length, expectedLoops); index++) {
+    it('Loads data row #' + (index + 1), () => { });
+    dataRow = dataset[index]
+    console.log(dataset);
+    console.log(dataset[index])
+
+    executeNegativeScenario(dataRow.name,
+      dataRow.short_color,//color,
+      dataRow.slug,
+      dataRow.description,
+      dataRow.meta_title,
+      dataRow.meta_description,
+      dataRow.meta_url,
+      dataRow.twitter_title,
+      dataRow.twitter_description,
+      dataRow.facebook_title,
+      dataRow.facebook_description);
+  }
+});
+
+describe('SC25 - Create tag with chinese name', () => {
+  let dataRow;
+  for (let index = 0; index < Math.min(dataset.length, expectedLoops); index++) {
+    it('Loads data row #' + (index + 1), () => { });
+    dataRow = dataset[index]
+    console.log(dataset);
+    console.log(dataset[index])
+
+    executePositiveScenario(dataRow.chinese_word,
+      dataRow.color,
+      dataRow.slug,
+      dataRow.description,
+      dataRow.meta_title,
+      dataRow.meta_description,
+      dataRow.meta_url,
+      dataRow.twitter_title,
+      dataRow.twitter_description,
+      dataRow.facebook_title,
+      dataRow.facebook_description);
+  }
+});
+
+describe('SC26 - Create tag with chinese slug', () => {
+  let dataRow;
+  for (let index = 0; index < Math.min(dataset.length, expectedLoops); index++) {
+    it('Loads data row #' + (index + 1), () => { });
+    dataRow = dataset[index]
+    console.log(dataset);
+    console.log(dataset[index])
+
+    executePositiveScenario(dataRow.name,
+      dataRow.color,
+      dataRow.chinese_word,//slug,
+      dataRow.description,
+      dataRow.meta_title,
+      dataRow.meta_description,
+      dataRow.meta_url,
+      dataRow.twitter_title,
+      dataRow.twitter_description,
+      dataRow.facebook_title,
+      dataRow.facebook_description);
+  }
+});
+
+describe('SC27 - Create tag with chinese description', () => {
+  let dataRow;
+  for (let index = 0; index < Math.min(dataset.length, expectedLoops); index++) {
+    it('Loads data row #' + (index + 1), () => { });
+    dataRow = dataset[index]
+    console.log(dataset);
+    console.log(dataset[index])
+
+    executePositiveScenario(dataRow.name,
+      dataRow.color,
+      dataRow.slug,
+      dataRow.chinese_word,//description,
+      dataRow.meta_title,
+      dataRow.meta_description,
+      dataRow.meta_url,
+      dataRow.twitter_title,
+      dataRow.twitter_description,
+      dataRow.facebook_title,
+      dataRow.facebook_description);
+  }
+});
+
+describe('SC28 - Create tag with chinese meta title', () => {
+  let dataRow;
+  for (let index = 0; index < Math.min(dataset.length, expectedLoops); index++) {
+    it('Loads data row #' + (index + 1), () => { });
+    dataRow = dataset[index]
+    console.log(dataset);
+    console.log(dataset[index])
+
+    executePositiveScenario(dataRow.name,
+      dataRow.color,
+      dataRow.slug,
+      dataRow.description,
+      dataRow.chinese_word,//meta_title,
+      dataRow.meta_description,
+      dataRow.meta_url,
+      dataRow.twitter_title,
+      dataRow.twitter_description,
+      dataRow.facebook_title,
+      dataRow.facebook_description);
+  }
+});
+
+describe('SC29 - Create tag with chinese meta description', () => {
+  let dataRow;
+  for (let index = 0; index < Math.min(dataset.length, expectedLoops); index++) {
+    it('Loads data row #' + (index + 1), () => { });
+    dataRow = dataset[index]
+    console.log(dataset);
+    console.log(dataset[index])
+
+    executePositiveScenario(dataRow.name,
+      dataRow.color,
+      dataRow.slug,
+      dataRow.description,
+      dataRow.meta_title,
+      dataRow.chinese_word,//meta_description,
+      dataRow.meta_url,
+      dataRow.twitter_title,
+      dataRow.twitter_description,
+      dataRow.facebook_title,
+      dataRow.facebook_description);
+  }
+});
+
+describe('SC30 - Create tag with chinese meta url', () => {
+  let dataRow;
+  for (let index = 0; index < Math.min(dataset.length, expectedLoops); index++) {
+    it('Loads data row #' + (index + 1), () => { });
+    dataRow = dataset[index]
+    console.log(dataset);
+    console.log(dataset[index])
+
+    executeNegativeScenario(dataRow.name,
+      dataRow.color,
+      dataRow.slug,
+      dataRow.description,
+      dataRow.meta_title,
+      dataRow.meta_description,
+      dataRow.chinese_word,//meta_url,
+      dataRow.twitter_title,
+      dataRow.twitter_description,
+      dataRow.facebook_title,
+      dataRow.facebook_description);
+  }
+});
+
+describe('SC31 - Create tag with chinese twitter title', () => {
+  let dataRow;
+  for (let index = 0; index < Math.min(dataset.length, expectedLoops); index++) {
+    it('Loads data row #' + (index + 1), () => { });
+    dataRow = dataset[index]
+    console.log(dataset);
+    console.log(dataset[index])
+
+    executePositiveScenario(dataRow.name,
+      dataRow.color,
+      dataRow.slug,
+      dataRow.description,
+      dataRow.meta_title,
+      dataRow.meta_description,
+      dataRow.meta_url,
+      dataRow.chinese_word,//twitter_title,
+      dataRow.twitter_description,
+      dataRow.facebook_title,
+      dataRow.facebook_description);
+  }
+});
+
+describe('SC32 - Create tag with chinese twitter description', () => {
+  let dataRow;
+  for (let index = 0; index < Math.min(dataset.length, expectedLoops); index++) {
+    it('Loads data row #' + (index + 1), () => { });
+    dataRow = dataset[index]
+    console.log(dataset);
+    console.log(dataset[index])
+
+    executePositiveScenario(dataRow.name,
+      dataRow.color,
+      dataRow.slug,
+      dataRow.description,
+      dataRow.meta_title,
+      dataRow.meta_description,
+      dataRow.meta_url,
+      dataRow.twitter_title,
+      dataRow.chinese_word,//twitter_description,
+      dataRow.facebook_title,
+      dataRow.facebook_description);
+  }
+});
+
+describe('SC33 - Create tag with chinese facebook title', () => {
+  let dataRow;
+  for (let index = 0; index < Math.min(dataset.length, expectedLoops); index++) {
+    it('Loads data row #' + (index + 1), () => { });
+    dataRow = dataset[index]
+    console.log(dataset);
+    console.log(dataset[index])
+
+    executePositiveScenario(dataRow.name,
+      dataRow.color,
+      dataRow.slug,
+      dataRow.description,
+      dataRow.meta_title,
+      dataRow.meta_description,
+      dataRow.meta_url,
+      dataRow.twitter_title,
+      dataRow.twitter_description,
+      dataRow.chinese_word,//facebook_title,
+      dataRow.facebook_description);
+  }
+});
+
+describe('SC34 - Create tag with chinese facebook description', () => {
+  let dataRow;
+  for (let index = 0; index < Math.min(dataset.length, expectedLoops); index++) {
+    it('Loads data row #' + (index + 1), () => { });
+    dataRow = dataset[index]
+    console.log(dataset);
+    console.log(dataset[index])
+
+    executePositiveScenario(dataRow.name,
+      dataRow.color,
+      dataRow.slug,
+      dataRow.description,
+      dataRow.meta_title,
+      dataRow.meta_description,
+      dataRow.meta_url,
+      dataRow.twitter_title,
+      dataRow.twitter_description,
+      dataRow.facebook_title,
+      dataRow.chinese_word);//facebook_description);
+  }
+});
