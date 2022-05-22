@@ -1,7 +1,0 @@
-{
-    "projectId":"Escenarios",
-    "baseUrl": "http://localhost:3002",
-    "email": "test@test.tt",
-	"password": "1234567890a.",
-    "chromeWebSecurity": false
-}
