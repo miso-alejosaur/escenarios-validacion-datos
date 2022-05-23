@@ -1,6 +1,6 @@
 {
     "baseUrl": "http://localhost:2368/ghost",
-    "defaultCommandTimeout": 30000,
+    "defaultCommandTimeout": 60000,
     "env": {
         "user": "test@test.tt",
         "pwd": "1234567890a.",
