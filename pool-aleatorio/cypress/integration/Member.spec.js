@@ -1,5 +1,4 @@
 const {faker} = require('@faker-js/faker');
-const baseUrl = Cypress.config("baseUrl")
 let username = Cypress.config('user')
 let password = Cypress.config('pwd')
 
