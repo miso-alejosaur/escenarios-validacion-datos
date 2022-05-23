@@ -1,7 +1,7 @@
 const baseUrl = Cypress.config("baseUrl")
-let username = Cypress.config('user')
-let password = Cypress.config('pwd')
-import dataset from '../fixtures/apriori/PostData.json'
+let username = Cypress.env('user')
+let password = Cypress.env('pwd')
+import dataset from '../fixtures/PostData.json'
 
 beforeEach(() => {
     cy.visit('/#/signin')
