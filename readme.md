@@ -26,3 +26,12 @@ Ingrese a la url http://localhost:2368/ghost/ (si su instancia de Ghost se ejecu
 ![imagen](https://user-images.githubusercontent.com/98656893/167307021-8f72da03-575a-4cdc-89a5-50dcf7e8a2eb.png)
 
 ### Nota: se recomienda ejecutar los pasos de las instrucciones generales antes de ejecutar las pruebas para cada una de las estrategias, esto con el objetivo de reiniciar el contador de logins, y devolver la aplicación a un estado inicial.
+
+## Instrucciones pool de datos a priori
+Tras realizar los pasos indicados en las instrucciones generales, mediante consola diríjase al subdirectorio `pool-a-priori` ubicado en este repositorio. Una vez allí, ingrese al archivo `cypress.json`, y dentro de este verifique que el puerto de la url base coincida con el puerto donde está ejecutando ghost en su máquina local; verifique también el usuario y contraseña, predefinidos por defecto con los valores `test@test.tt` y `1234567890a.` respectivamente; y por último, setee el valor de la configuración `a_priori_runs_tags` según la cantidad de ejecuciones con tuplas distintas que desee para cada escenario; se recomienda dejar el valor por defecto 1 ya que aumentar este número aumentará el tiempo necesario para la ejecución. 
+
+Cuando confirme que todos los valores de configuración son los deseados, ejecute mediante consola el comando
+```
+sudo cypress run
+```
+Esto iniciará la ejecución de los test creados con la estrategia de pool de datos a priori.
