@@ -13,6 +13,10 @@ Adicionalmente, en el archivo cypress.json, ubicado en el subdirectorio pool-a-p
 
 ## Escenario aleatorio
 
+Para esta estrategia nos apoyamos sobre la libreria Faker js, la cual nos ayuda a generar datos falsos aleatorios de forma automatica,se trato de usar de la forma mas coherente posible haciendo uso de la documentacion de faker js (https://fakerjs.dev/guide/) siguiendo asi para los datos de nombres utlizamos la api de Name de faker, para el uso de emails usamos la api de Internet de faker y para los datos donde se necesita mas precicion en cuanto a su longitud usamo la api de Random haciendo uso alpha donde nos pide la cantidad de caracteres.
+
+Se optó por usar faker ya que es muy sencillo el uso, tiene una buena documentación y la generación de datos aleatorios es muy consistente
+
 # Instrucciones de ejecución
 Debido a la limitación de ghost de no permitir más de 100 inicios de sesión por hora, se separaron los escenarios en tres carpetas, una por cada estrategia usada. A continuación encontrará instrucciones genéricas para ejecutar los escenarios de las 3 estrategias, y posteriormente especificidades de cada una de estas.
 
