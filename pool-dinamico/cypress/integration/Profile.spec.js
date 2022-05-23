@@ -302,22 +302,9 @@ describe('Testing Ghost Profile', () =>{
         cy.get('#user-facebook').clear().type(data.facebook, {force: true});
         cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
         cy.get('button').contains('Saved').should('exist');
-    });/*
-    it('SC58 - ingreso números a user Twitter', () => {
-        cy.get('.email').clear().type(username);
-        cy.get('.password').clear().type(password);
-        cy.get('.login').click();
-        cy.wait(1000);
-        cy.get('div.gh-nav-bottom div[role="button"]').click();
-        cy.wait(1000);
-        cy.contains('Your profile').click();
-        cy.wait(1000);
-        cy.get('#user-twitter').clear().type('123 123 456 789', {force: true});
-        cy.get('#ember67 > span').click();
-        cy.get('button').contains('Saved').should('exist');
-        //cy.get('#ember78 > .response').should('contain','Your Username is not a valid Twitter Username')
     });
-    it('SC59 - ingreso emojis a user Twitter', () => {
+    it('SC61 - ingreso números a user Twitter', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.url(), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": faker.datatype.number({min: 1, max: 190}), "bio": faker.lorem.words(50)}; 
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -326,26 +313,12 @@ describe('Testing Ghost Profile', () =>{
         cy.wait(1000);
         cy.contains('Your profile').click();
         cy.wait(1000);
-        cy.get('#user-twitter').clear().type('👾 👾 👾 👾 🙇 ', {force: true});
-        cy.get('#ember67 > span').click();
-        cy.get('button').contains('Saved').should('exist');
-        //cy.get('#ember78 > .response').should('contain','Your Username is not a valid Twitter Username')
-    });
-    it('SC60 - parrafos a user Twitter', () => {
-        cy.get('.email').clear().type(username);
-        cy.get('.password').clear().type(password);
-        cy.get('.login').click();
-        cy.wait(1000);
-        cy.get('div.gh-nav-bottom div[role="button"]').click();
-        cy.wait(1000);
-        cy.contains('Your profile').click();
-        cy.wait(1000);
-        cy.get('#user-twitter').clear().type('Hola mundo!', {force: true});
-        cy.get('#ember67 > span').click();
-        //cy.get('#ember78 > .response').should('contain','Your Username is not a valid Twitter Username')
+        cy.get('#user-twitter').clear().type(data.twitter, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
         cy.get('button').contains('Saved').should('exist');
     });
-    it('SC61 - texto largo a user Twitter', () => {
+    it('SC62 - ingreso emojis a user Twitter', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.url(), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": faker.internet.emoji(), "bio": faker.lorem.words(50)}; 
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -354,11 +327,12 @@ describe('Testing Ghost Profile', () =>{
         cy.wait(1000);
         cy.contains('Your profile').click();
         cy.wait(1000);
-        cy.get('#user-twitter').clear().type('Hola mundo!', {force: true});
-        cy.get('#ember67 > span').click();
+        cy.get('#user-twitter').clear().type(data.twitter, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
         cy.get('button').contains('Saved').should('exist');
     });
-    it('SC62 - simbolos a user Twitter', () => {
+    it('SC63 - parrafos a user Twitter', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.url(), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": faker.lorem.words(2), "bio": faker.lorem.words(50)}; 
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -367,11 +341,12 @@ describe('Testing Ghost Profile', () =>{
         cy.wait(1000);
         cy.contains('Your profile').click();
         cy.wait(1000);
-        cy.get('#user-twitter').clear().type('#$%ˆ&* 8())!', {force: true});
-        cy.get('#ember67 > span').click();
+        cy.get('#user-twitter').clear().type(data.twitter, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
         cy.get('button').contains('Saved').should('exist');
     });
-    it('SC63 - simbolos en Bio', () => {
+    it('SC64 - texto largo a user Twitter', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.url(), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": faker.internet.password(2058), "bio": faker.lorem.words(50)}; 
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -380,11 +355,12 @@ describe('Testing Ghost Profile', () =>{
         cy.wait(1000);
         cy.contains('Your profile').click();
         cy.wait(1000);
-        cy.get('#user-bio').clear().type('#$%ˆ&* 8())!', {force: true});
-        cy.get('#ember67 > span').click();
+        cy.get('#user-twitter').clear().type(data.twitter, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
         cy.get('button').contains('Saved').should('exist');
     });
-    it('SC64 - Texto largo en Bio', () => {
+    it('SC65 - simbolos a user Twitter', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.url(), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": faker.internet.ipv6(), "bio": faker.lorem.words(50)}; 
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -393,9 +369,50 @@ describe('Testing Ghost Profile', () =>{
         cy.wait(1000);
         cy.contains('Your profile').click();
         cy.wait(1000);
-        cy.get('#user-bio').clear().type('MDCCYUQLCWBBMVHSVPHLTDQCLHYCQBJMNEFDDDHURPYEFTRTJOMWLNVPIYAGKFIOWJEGPZTLPKCIDIZGEGBKHZRQICNWQGDUODRXIIZWZZZFFUSNDBORAHETOILYYPUTDTBOFSXSKBRDRRGPAWMHGAJZSUZEWBTPYTKDOHPAIYLZYTOHZUYDGYFCSPLULQELAIOVAHTIYNSHVNZHYMSJYWDEUZHGRDDBUNKMWYAEJBJVXFSFBBWHZOUWDZCEWSPXXDSQIMIWPEKKFCRSIZAJIXNCFAYXDGMZACFUYOLIVTJT6055R', {force: true});
-        cy.get('#ember67 > span').click();
-        cy.get('#ember79 > .response').should('contain','Bio is too long')
-        //cy.get('button').contains('Saved').should('exist');
-    })*/
+        cy.get('#user-twitter').clear().type(data.twitter, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
+        cy.get('button').contains('Saved').should('exist');
+    });
+    it('SC66 - simbolos en Bio', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.url(), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.internet.ipv6()}; 
+        cy.get('.email').clear().type(username);
+        cy.get('.password').clear().type(password);
+        cy.get('.login').click();
+        cy.wait(1000);
+        cy.get('div.gh-nav-bottom div[role="button"]').click();
+        cy.wait(1000);
+        cy.contains('Your profile').click();
+        cy.wait(1000);
+        cy.get('#user-bio').clear().type(data.bio, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
+        cy.get('button').contains('Saved').should('exist');
+    });
+    it('SC67 - Texto largo en Bio', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.url(), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.internet.password(210)}; 
+        cy.get('.email').clear().type(username);
+        cy.get('.password').clear().type(password);
+        cy.get('.login').click();
+        cy.wait(1000);
+        cy.get('div.gh-nav-bottom div[role="button"]').click();
+        cy.wait(1000);
+        cy.contains('Your profile').click();
+        cy.wait(1000);
+        cy.get('#user-bio').clear().type(data.bio, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
+        cy.get('.response').should('contain','Bio is too long')
+    })
+    it('SC68 - Texto en Bio', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.url(), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.lorem.words(10)}; 
+        cy.get('.email').clear().type(username);
+        cy.get('.password').clear().type(password);
+        cy.get('.login').click();
+        cy.wait(1000);
+        cy.get('div.gh-nav-bottom div[role="button"]').click();
+        cy.wait(1000);
+        cy.contains('Your profile').click();
+        cy.wait(1000);
+        cy.get('#user-bio').clear().type(data.bio, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
+        cy.get('button').contains('Saved').should('exist');
+    })
 })
