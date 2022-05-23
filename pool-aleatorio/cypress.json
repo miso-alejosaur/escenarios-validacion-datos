@@ -1,0 +1,10 @@
+{
+    "projectId": "Escenarios-PoolAleatorio",
+    "baseUrl": "http://localhost:2368/ghost",
+    "defaultCommandTimeout": 30000,
+    "chromeWebSecurity": false,
+    "user": "test@test.tt",
+    "pwd": "1234567890a.",
+    "viewportWidth": 1000,
+    "viewportHeight": 860
+}
