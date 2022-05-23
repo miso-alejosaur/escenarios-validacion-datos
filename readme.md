@@ -10,3 +10,19 @@ Adicionalmente, en el archivo cypress.json, ubicado en el subdirectorio pool-a-p
 ## Pool de datos (pseudo)aleatorio dinámico
 
 ## Escenario aleatorio
+
+# Instrucciones de ejecución
+Debido a la limitación de ghost de no permitir más de 100 inicios de sesión por hora, se separaron los escenarios en tres carpetas, una por cada estrategia usada. A continuación encontrará instrucciones genéricas para ejecutar los escenarios de las 3 estrategias, y posteriormente especificidades de cada una de estas.
+
+## Instrucciones generales
+Para la creación de estos test, se usó la versión 4.44.0 de Ghost; para ejecutar esta versión, ubíquese mediante consola en el directorio donde tenga instalado Ghost, y ejecute los siguientes comandos:
+```
+ghost uninstall
+ghost install 4.44.0 -local
+```
+Cuando la instalación finalice, se iniciará la ejecución de Ghost en `http://localhost:2368`, en caso que inicie en otro puerto o dirección, será necesario modificarlo en el archivo de configuración correspondiente a la estrategia que se va a ejecutar.
+
+Ingrese a la url http://localhost:2368/ghost/ (si su instancia de Ghost se ejecutó en otro puerto, úselo); allí encontrará un formulario para crear un nuevo Sitio en ghost. En los campos "Site title" y "Full name" ingrese los datos que desee, en el campo "Email Address" ingrese `test@test.tt`, y en el campo "Password" ingrese `1234567890a.`. Estas son las credenciales configuradas en los escenarios creados. 
+![imagen](https://user-images.githubusercontent.com/98656893/167307021-8f72da03-575a-4cdc-89a5-50dcf7e8a2eb.png)
+
+### Nota: se recomienda ejecutar los pasos de las instrucciones generales antes de ejecutar las pruebas para cada una de las estrategias, esto con el objetivo de reiniciar el contador de logins, y devolver la aplicación a un estado inicial.
