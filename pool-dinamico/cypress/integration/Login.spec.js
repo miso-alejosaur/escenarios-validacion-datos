@@ -11,6 +11,7 @@ describe('Testing Ghost Login', () =>{
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click()
+        cy.url().should('contains', '/#/dashboard')
     });
     it('SC36 - Usuario random y Password vacio', () => {
         let dataRow;
@@ -19,7 +20,7 @@ describe('Testing Ghost Login', () =>{
         cy.get('.email').clear().type(dataRow.username);
         cy.get('.login').click()
         cy.get('button.login').contains('Retry')
-        cy.get('p.main-error').contains('Please fill out the form to sign in.')
+        cy.get('p.main-error').contains('Please fill out the form to sign in.').should('exist')
     });
     it('SC37 - Usuario vacio y Password random', () => {
         let dataRow;
@@ -28,7 +29,7 @@ describe('Testing Ghost Login', () =>{
         cy.get('.password').clear().type(dataRow.password);
         cy.get('.login').click()
         cy.get('button.login').contains('Retry')
-        cy.get('p.main-error').contains('Please fill out the form to sign in.')
+        cy.get('p.main-error').contains('Please fill out the form to sign in.').should('exist')
     });
     it('SC38 - Usuario y Password random', () => {
         let dataRow;
@@ -38,7 +39,7 @@ describe('Testing Ghost Login', () =>{
         cy.get('.password').clear().type(dataRow.password);
         cy.get('.login').click()
         cy.get('button.login').contains('Retry')
-        cy.get('p.main-error').contains('There is no user with that email address.')
+        cy.get('p.main-error').contains('There is no user with that email address.').should('exist')
     });
     it('SC39 - Usuario y Password vacios', () => {
         let dataRow;
@@ -46,6 +47,6 @@ describe('Testing Ghost Login', () =>{
         dataRow = dataset[index]
         cy.get('.login').click()
         cy.get('button.login').contains('Retry')
-        cy.get('p.main-error').contains('Please fill out the form to sign in.')
+        cy.get('p.main-error').contains('Please fill out the form to sign in.').should('exist')
     });
 })
