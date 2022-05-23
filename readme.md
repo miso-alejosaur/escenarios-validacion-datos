@@ -42,6 +42,14 @@ sudo cypress run
 ```
 Esto iniciará la ejecución de los test creados con la estrategia de pool de datos a priori.
 
+## Instrucciones Pool de datos (pseudo)aleatorio
+Tras realizar los pasos indicados en las instrucciones generales, mediante consola diríjase al subdirectorio `pool-dinamico` ubicado en este repositorio. Una vez allí, ingrese al archivo `cypress.json`, y dentro de este verifique que el puerto de la url base coincida con el puerto donde está ejecutando ghost en su máquina local; verifique también el usuario y contraseña, predefinidos por defecto con los valores `test@test.tt` y `1234567890a.` respectivamente. 
+
+Cuando confirme que todos los valores de configuración son los deseados, ejecute mediante consola el comando
+```
+sudo cypress open
+```
+esto le abrira una ventana con los test de integracion disponibles (Profile.spec.js) para correr uno darle click a uno para correr sus respectivos test, esto abrira una ventana de chorome donde se empezara a ejecutar los test
 
 ## Instrucciones pool de datos aleatorio
 Tras realizar los pasos indicados en las instrucciones generales, mediante consola diríjase al subdirectorio `pool-aleatorio` ubicado en este repositorio. Una vez allí, ingrese al archivo `cypress.json`, y dentro de este verifique que el puerto de la url base coincida con el puerto donde está ejecutando ghost en su máquina local; verifique también el usuario y contraseña, predefinidos por defecto con los valores `test@test.tt` y `1234567890a.` respectivamente. 
