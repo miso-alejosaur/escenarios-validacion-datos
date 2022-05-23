@@ -302,8 +302,8 @@ describe('Testing Ghost Profile', () =>{
         cy.get('#user-facebook').clear().type(data.facebook, {force: true});
         cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
         cy.get('button').contains('Saved').should('exist');
-    });/*
-    it('SC58 - ingreso números a user Twitter', () => {
+    });
+    it('SC61 - ingreso números a user Twitter', () => {
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -317,7 +317,7 @@ describe('Testing Ghost Profile', () =>{
         cy.get('button').contains('Saved').should('exist');
         //cy.get('#ember78 > .response').should('contain','Your Username is not a valid Twitter Username')
     });
-    it('SC59 - ingreso emojis a user Twitter', () => {
+    it('SC62 - ingreso emojis a user Twitter', () => {
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -331,7 +331,7 @@ describe('Testing Ghost Profile', () =>{
         cy.get('button').contains('Saved').should('exist');
         //cy.get('#ember78 > .response').should('contain','Your Username is not a valid Twitter Username')
     });
-    it('SC60 - parrafos a user Twitter', () => {
+    it('SC63 - parrafos a user Twitter', () => {
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -345,7 +345,7 @@ describe('Testing Ghost Profile', () =>{
         //cy.get('#ember78 > .response').should('contain','Your Username is not a valid Twitter Username')
         cy.get('button').contains('Saved').should('exist');
     });
-    it('SC61 - texto largo a user Twitter', () => {
+    it('SC64 - texto largo a user Twitter', () => {
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -358,7 +358,7 @@ describe('Testing Ghost Profile', () =>{
         cy.get('#ember67 > span').click();
         cy.get('button').contains('Saved').should('exist');
     });
-    it('SC62 - simbolos a user Twitter', () => {
+    it('SC65 - simbolos a user Twitter', () => {
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -371,7 +371,7 @@ describe('Testing Ghost Profile', () =>{
         cy.get('#ember67 > span').click();
         cy.get('button').contains('Saved').should('exist');
     });
-    it('SC63 - simbolos en Bio', () => {
+    it('SC66 - simbolos en Bio', () => {
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -384,7 +384,7 @@ describe('Testing Ghost Profile', () =>{
         cy.get('#ember67 > span').click();
         cy.get('button').contains('Saved').should('exist');
     });
-    it('SC64 - Texto largo en Bio', () => {
+    it('SC67 - Texto largo en Bio', () => {
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -397,5 +397,5 @@ describe('Testing Ghost Profile', () =>{
         cy.get('#ember67 > span').click();
         cy.get('#ember79 > .response').should('contain','Bio is too long')
         //cy.get('button').contains('Saved').should('exist');
-    })*/
+    })
 })
