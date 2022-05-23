@@ -1,6 +1,7 @@
 const baseUrl = Cypress.config("baseUrl")
 let username = Cypress.config('user')
 let password = Cypress.config('pwd')
+import { faker } from '@faker-js/faker'
 import dataset from '../fixtures/apriori/userlogin.json'
 
 beforeEach(() => {
@@ -8,7 +9,9 @@ beforeEach(() => {
 })
 
 describe('Testing Ghost Profile', () =>{
-    /*it('SC40 - Colocar Nombre Aleatoriamente', () => {
+    
+    it('SC40 - Colocar Nombre Aleatoriamente', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.url(), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.lorem.words(50)}; 
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -17,9 +20,9 @@ describe('Testing Ghost Profile', () =>{
         cy.wait(1000);
         cy.contains('Your profile').click();
         cy.wait(1000);
-        cy.get('input#user-name').clear().type('hola', {force: true});
-        cy.get('#ember67 > span').click();
-        cy.get('.gh-canvas-title').should('contain', 'hola')
+        cy.get('input#user-name').clear().type(data.name, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
+        cy.get('.gh-canvas-title').should('contain', data.name).should('exist')
     });
     it('SC41 - Dejar el Nombre en Blanco', () => {
         cy.get('.email').clear().type(username);
@@ -31,10 +34,11 @@ describe('Testing Ghost Profile', () =>{
         cy.contains('Your profile').click();
         cy.wait(1000);
         cy.get('input#user-name').clear();
-        cy.get('#ember67 > span').click();
-        cy.get('#ember71 > .response').contains('Please enter a name.')
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
+        cy.get('.response').contains('Please enter a name.').should('exist')
     });
     it('SC42 - Dejar el Nombre solo números', () => {
+        let data = {"name": faker.datatype.number({min: 1, max: 190}), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.url(), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.lorem.words(50)}; 
             cy.get('.email').clear().type(username);
             cy.get('.password').clear().type(password);
             cy.get('.login').click();
@@ -43,11 +47,12 @@ describe('Testing Ghost Profile', () =>{
             cy.wait(1000);
             cy.contains('Your profile').click();
             cy.wait(1000);
-            cy.get('input#user-name').clear().type(123, {force: true});
-            cy.get('#ember67 > span').click();
-            cy.get('.gh-canvas-title').should('contain', 123)
+            cy.get('input#user-name').clear().type(data.name, {force: true});
+            cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
+            cy.get('.gh-canvas-title').should('contain', data.name).should('exist')
         });
     it('SC43 - Dejar el Nombre largo', () => {
+        let data = {"name": faker.internet.password(192), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.url(), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.lorem.words(50)}; 
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -56,11 +61,12 @@ describe('Testing Ghost Profile', () =>{
         cy.wait(1000);
         cy.contains('Your profile').click();
         cy.wait(1000);
-        cy.get('input#user-name').clear().type('MDCCYUQLCWBBMVHSVPHLTDQCLHYCQBJMNEFDDDHURPYEFTRTJOMWLNVPIYAGKFIOWJEGPZTLPKCIDIZGEGBKHZRQICNWQGDUODRXIIZWZZZFFUSNDBORAHETOILYYPUTDTBOFSXSKBRDRRGPAWMHGAJZSUZEWBTPYTKDOHPAIYLZYTOHZUYDGYFCSPLULQELAIOVAHTIYNSHVNZHYMSJYWDEUZHGRDDBUNKMWYAEJBJVXFSFBBWHZOUWDZCEWSPXXDSQIMIWPEKKFCRSIZAJIXNCFAYXDGMZACFUYOLIVTJT6055R', {force: true});
-        cy.get('#ember67 > span').click();
-        cy.get('#ember71 > .response').should('contain','Name is too long')
+        cy.get('input#user-name').clear().type(data.name, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
+        cy.get('.response').should('contain','Name is too long').should('exist')
     });
     it('SC44 - Dejar el Nombre corto', () => {
+        let data = {"name": faker.lorem.word(1), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.url(), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.lorem.words(50)}; 
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -69,11 +75,12 @@ describe('Testing Ghost Profile', () =>{
         cy.wait(1000);
         cy.contains('Your profile').click();
         cy.wait(1000);
-        cy.get('input#user-name').clear().type('h', {force: true});
-        cy.get('#ember67 > span').click();
-        cy.get('.gh-canvas-title').should('contain', 'h')
+        cy.get('input#user-name').clear().type(data.name, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
+        cy.get('.gh-canvas-title').should('contain', data.name).should('exist')
     });
     it('SC45 - Colocar Locación Aleatoriamente', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "location":faker.lorem.words(2), "website": faker.internet.url(), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.lorem.words(50)}; 
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -82,11 +89,12 @@ describe('Testing Ghost Profile', () =>{
         cy.wait(1000);
         cy.contains('Your profile').click();
         cy.wait(1000);
-        cy.get('input#user-location').clear().type('hola', {force: true});
-        cy.get('#ember67 > span').click();
+        cy.get('input#user-location').clear().type(data.location, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
         cy.get('button').contains('Saved').should('exist');
     });
     it('SC46 - Locación Números aleatorios', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "location":faker.datatype.number({min: 1, max: 190}), "website": faker.internet.url(), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.lorem.words(50)}; 
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -95,11 +103,12 @@ describe('Testing Ghost Profile', () =>{
         cy.wait(1000);
         cy.contains('Your profile').click();
         cy.wait(1000);
-        cy.get('input#user-location').clear().type(123456789, {force: true});
-        cy.get('#ember67 > span').click();
+        cy.get('input#user-location').clear().type(data.location, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
         cy.get('button').contains('Saved').should('exist');
     });
     it('SC47 - Locación Textos extraños', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "location":faker.internet.password(100), "website": faker.internet.url(), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.lorem.words(50)}; 
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -108,14 +117,12 @@ describe('Testing Ghost Profile', () =>{
         cy.wait(1000);
         cy.contains('Your profile').click();
         cy.wait(1000);
-        cy.get('input#user-location').clear().type('123456789&ˆ(*%', {force: true});
-        cy.get('#ember67 > span').click();
+        cy.get('input#user-location').clear().type(data.location, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
         cy.get('button').contains('Saved').should('exist');
     });
-    it('SC48 - Ingresar Email en Locación', () => {
-        let dataRow;
-        let index = Math.floor(Math.random() * dataset.length  )
-        dataRow = dataset[index]
+    it('SC48 - Locación Textos largos', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "location":faker.internet.password(151), "website": faker.internet.url(), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.lorem.words(50)}; 
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -124,11 +131,25 @@ describe('Testing Ghost Profile', () =>{
         cy.wait(1000);
         cy.contains('Your profile').click();
         cy.wait(1000);
-        cy.get('input#user-location').clear().type(dataRow.username, {force: true});
-        cy.get('#ember67 > span').click();
+        cy.get('input#user-location').clear().type(data.location, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
+        cy.get('.response').should('contain','Location is too long').should('exist')
+    });
+    it('SC49 - Ingresar Email en Locación', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.url(), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.lorem.words(50)}; 
+        cy.get('.email').clear().type(username);
+        cy.get('.password').clear().type(password);
+        cy.get('.login').click();
+        cy.wait(1000);
+        cy.get('div.gh-nav-bottom div[role="button"]').click();
+        cy.wait(1000);
+        cy.contains('Your profile').click();
+        cy.wait(1000);
+        cy.get('input#user-location').clear().type(data.email, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
         cy.get('button').contains('Saved').should('exist');
     });
-    it('SC49 - Dejar Locación en blanco', () => {
+    it('SC50 - Dejar Locación en blanco', () => {
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -138,10 +159,11 @@ describe('Testing Ghost Profile', () =>{
         cy.contains('Your profile').click();
         cy.wait(1000);
         cy.get('input#user-location').clear();
-        cy.get('#ember67 > span').click();
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
         cy.get('button').contains('Saved').should('exist');
     });
-    it('SC50 - ingreso números a website', () => {
+    it('SC51 - ingreso números a website', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.datatype.number({min: 1, max: 190}), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.lorem.words(50)}; 
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -150,11 +172,12 @@ describe('Testing Ghost Profile', () =>{
         cy.wait(1000);
         cy.contains('Your profile').click();
         cy.wait(1000);
-        cy.get('#user-website').clear().type('123123', {force: true});
-        cy.get('#ember67 > span').click();
-        cy.get('#ember76 > .response').should('contain','Website is not a valid url')
+        cy.get('#user-website').clear().type(data.website, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
+        cy.get('.response').should('contain','Website is not a valid url')
     });
-    it('SC51 - ingreso emojis a website', () => {
+    it('SC52 - ingreso emojis a website', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.emoji(), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.lorem.words(50)}; 
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -163,11 +186,12 @@ describe('Testing Ghost Profile', () =>{
         cy.wait(1000);
         cy.contains('Your profile').click();
         cy.wait(1000);
-        cy.get('#user-website').clear().type('👾 👾 👾 👾 🙇 ', {force: true});
-        cy.get('#ember67 > span').click();
-        cy.get('#ember76 > .response').should('contain','Website is not a valid url')
+        cy.get('#user-website').clear().type(data.website, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
+        cy.get('.response').should('contain','Website is not a valid url')
     });
-    it('SC52 - parrafos a website', () => {
+    it('SC53 - Parrafos a website', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.lorem.paragraphs(1), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.lorem.words(50)}; 
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -176,11 +200,12 @@ describe('Testing Ghost Profile', () =>{
         cy.wait(1000);
         cy.contains('Your profile').click();
         cy.wait(1000);
-        cy.get('#user-website').clear().type('Hola mundo!', {force: true});
-        cy.get('#ember67 > span').click();
-        cy.get('#ember76 > .response').should('contain','Website is not a valid url')
+        cy.get('#user-website').clear().type(data.website, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
+        cy.get('.response').should('contain','Website is not a valid url')
     });
-    it('SC53 - ingreso números a user facebook', () => {
+    it('SC54 - Ingreso de url larga a website', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.password(2001), "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.lorem.words(50)}; 
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -189,12 +214,41 @@ describe('Testing Ghost Profile', () =>{
         cy.wait(1000);
         cy.contains('Your profile').click();
         cy.wait(1000);
-        cy.get('#user-facebook').clear().type(123, {force: true});
-        cy.get('#ember67 > span').click();
+        cy.get('#user-website').clear().type(data.website, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
+        cy.get('.response').should('contain','Website is not a valid url')
+    });
+    it('SC55 - Ingreso de url valida a website', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.url() , "facebook": "https://www.facebook.com/"+faker.lorem.words(1), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.lorem.words(50)}; 
+        cy.get('.email').clear().type(username);
+        cy.get('.password').clear().type(password);
+        cy.get('.login').click();
+        cy.wait(1000);
+        cy.get('div.gh-nav-bottom div[role="button"]').click();
+        cy.wait(1000);
+        cy.contains('Your profile').click();
+        cy.wait(1000);
+        cy.get('#user-website').clear().type(data.website, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
+        cy.get('button').contains('Saved').should('exist');
+    });
+    it('SC56 - ingreso números a user facebook', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.url(), "facebook": faker.datatype.number({min: 1, max: 190}), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.lorem.words(50)}; 
+        cy.get('.email').clear().type(username);
+        cy.get('.password').clear().type(password);
+        cy.get('.login').click();
+        cy.wait(1000);
+        cy.get('div.gh-nav-bottom div[role="button"]').click();
+        cy.wait(1000);
+        cy.contains('Your profile').click();
+        cy.wait(1000);
+        cy.get('#user-facebook').clear().type(data.facebook, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
         cy.get('button').contains('Saved').should('exist');
         
     });
-    it('SC54 - ingreso emojis a user facebook', () => {
+    it('SC57 - ingreso emojis a user facebook', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.url(), "facebook": faker.internet.emoji(), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.lorem.words(50)}; 
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -203,27 +257,12 @@ describe('Testing Ghost Profile', () =>{
         cy.wait(1000);
         cy.contains('Your profile').click();
         cy.wait(1000);
-        cy.get('#user-facebook').clear().type('👾 👾 👾 👾 🙇 ', {force: true});
-        cy.get('#ember67 > span').click();
-        cy.get('#ember77 > .response').should('contain','The URL must be in a format like https://www.facebook.com/yourPage')
-        //cy.get('#ember76 > .response').should('contain','Website is not a valid url')
-    });
-    it('SC55 - parrafos a user facebook', () => {
-        cy.get('.email').clear().type(username);
-        cy.get('.password').clear().type(password);
-        cy.get('.login').click();
-        cy.wait(1000);
-        cy.get('div.gh-nav-bottom div[role="button"]').click();
-        cy.wait(1000);
-        cy.contains('Your profile').click();
-        cy.wait(1000);
-        cy.get('#user-facebook').clear().type('Hola mundo!', {force: true});
-        cy.get('#ember67 > span').click();
-        //cy.get('#ember76 > .response').should('contain','Website is not a valid url')
-        //cy.get('#ember77 > .response').should('contain','The URL must be in a format like https://www.facebook.com/yourPage')
+        cy.get('#user-facebook').clear().type(data.facebook, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
         cy.get('button').contains('Saved').should('exist');
     });
-    it('SC56 - texto largo a user facebook', () => {
+    it('SC58 - texto a user facebook', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.url(), "facebook": faker.lorem.words(1), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.lorem.words(50)}; 
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -232,13 +271,12 @@ describe('Testing Ghost Profile', () =>{
         cy.wait(1000);
         cy.contains('Your profile').click();
         cy.wait(1000);
-        cy.get('#user-facebook').clear().type('Hola mundo!', {force: true});
-        cy.get('#ember67 > span').click();
-        //cy.get('#ember76 > .response').should('contain','Website is not a valid url')
-        //cy.get('#ember77 > .response').should('contain','The URL must be in a format like https://www.facebook.com/yourPage')
+        cy.get('#user-facebook').clear().type(data.facebook, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
         cy.get('button').contains('Saved').should('exist');
     });
-    it('SC57 - simbolos a user facebook', () => {
+    it('SC59 - Texto largo a user facebook', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.url(), "facebook": faker.internet.password(2058), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.lorem.words(50)}; 
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
         cy.get('.login').click();
@@ -247,12 +285,24 @@ describe('Testing Ghost Profile', () =>{
         cy.wait(1000);
         cy.contains('Your profile').click();
         cy.wait(1000);
-        cy.get('#user-facebook').clear().type('#$%ˆ&* 8())!', {force: true});
-        cy.get('#ember67 > span').click();
-        //cy.get('#ember76 > .response').should('contain','Website is not a valid url')
-        //cy.get('#ember77 > .response').should('contain','The URL must be in a format like https://www.facebook.com/yourPage')
+        cy.get('#user-facebook').clear().type(data.facebook, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
         cy.get('button').contains('Saved').should('exist');
     });
+    it('SC60 - simbolos a user facebook', () => {
+        let data = {"name": faker.commerce.productName(), "slug": faker.lorem.words(1), "email": faker.internet.email(), "Location":faker.lorem.words(2), "website": faker.internet.url(), "facebook": faker.internet.ipv6(), "twitter": "https://twitter.com/"+faker.lorem.words(1), "bio": faker.lorem.words(50)}; 
+        cy.get('.email').clear().type(username);
+        cy.get('.password').clear().type(password);
+        cy.get('.login').click();
+        cy.wait(1000);
+        cy.get('div.gh-nav-bottom div[role="button"]').click();
+        cy.wait(1000);
+        cy.contains('Your profile').click();
+        cy.wait(1000);
+        cy.get('#user-facebook').clear().type(data.facebook, {force: true});
+        cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view').click();
+        cy.get('button').contains('Saved').should('exist');
+    });/*
     it('SC58 - ingreso números a user Twitter', () => {
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
@@ -320,7 +370,7 @@ describe('Testing Ghost Profile', () =>{
         cy.get('#user-twitter').clear().type('#$%ˆ&* 8())!', {force: true});
         cy.get('#ember67 > span').click();
         cy.get('button').contains('Saved').should('exist');
-    });*/
+    });
     it('SC63 - simbolos en Bio', () => {
         cy.get('.email').clear().type(username);
         cy.get('.password').clear().type(password);
@@ -347,5 +397,5 @@ describe('Testing Ghost Profile', () =>{
         cy.get('#ember67 > span').click();
         cy.get('#ember79 > .response').should('contain','Bio is too long')
         //cy.get('button').contains('Saved').should('exist');
-    })
+    })*/
 })
